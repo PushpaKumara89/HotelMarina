@@ -1,0 +1,38 @@
+
+<div class="main-wrap">
+  <h1>Room Management</h1>
+  <hr>
+
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th>Counts</th>
+      <th>Room No</th>
+      <th>Category</th>
+      <th>Amount per Night</th>
+      <th>Description</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+
+      <tr *ngFor="let temRoom of room; index as num">
+        <td >{{num+1}}</td>
+        <td >{{temRoom.room_number}}</td>
+        <td >{{temRoom.room_category}}</td>
+        <td >$ &nbsp; {{temRoom.price_per_night}}</td>
+        <td >{{temRoom.description}}</td>
+        <td>
+          <mat-icon (click)="openUpdate(temRoom)" >mode_edit</mat-icon>
+          &nbsp;
+          <mat-icon (click)="openDelete(temRoom.room_number)">delete</mat-icon>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <button mat-raised-button color="primary" (click)="openAddRoom()">Add New Room</button>
+
+
+</div>

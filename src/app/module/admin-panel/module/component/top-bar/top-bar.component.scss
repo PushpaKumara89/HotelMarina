@@ -1,0 +1,27 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+mat-toolbar{
+  height: 75px;
+  background-color: rgba(24, 74, 69, 0.35);
+}
+mat-toolbar:hover{
+  background-color: rgba(24, 74, 69, 0.75);
+}
+button{
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.tile{
+  font-size: 35px;
+}
+
+.space{
+  width: 25px;
+}
+.b1{
+  width: 25px;
+  height: 25px;
+  font-size: 35px;
+}

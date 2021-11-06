@@ -1,0 +1,57 @@
+<mat-dialog-content class="mat-typography">
+  <div class="main-wrap">
+
+    <h1>  Update Room Details  <mat-icon aria-hidden="false" aria-label="Example home icon">mode_edit</mat-icon></h1>
+    <hr>
+
+    <form [formGroup]="updateRoomForm" (ngSubmit)="updateRoom(price.value)" >
+
+      <div class="inner-wrap">
+
+        <div class="col-md-9">
+          <mat-form-field floatLabel="auto" hideRequiredMarker appearance="outline" color="primary" class="example-full-width">
+            <mat-label>Room Number</mat-label>
+            <input formControlName="room_number"  matInput type="text" placeholder="Ex. R00x" [disabled]="true" >
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-10">
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Select Category</mat-label>
+            <mat-select formControlName="room_category" >
+              <mat-option *ngFor="let room of rooms" [value]="room.viewValue">
+                {{room.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+        </div>
+
+        <div class="col-md-10">
+          <mat-form-field floatLabel="auto" hideRequiredMarker appearance="outline" color="primary" class="example-full-width">
+            <mat-label>Price</mat-label>
+            <span matPrefix>$ </span>
+            <input formControlName="price_pre_night"  #price matInput type="number">
+            <mat-hint> mention Price Pre Night for gust</mat-hint>
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-10">
+          <mat-form-field floatLabel="auto" hideRequiredMarker appearance="outline" color="primary" class="example-full-width">
+            <mat-label>Description about the room</mat-label>
+            <textarea formControlName="description"  rows="5"  matInput placeholder="Ex. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium asperiores esse ipsa ipsam itaque nemo quidem quo, rem totam. " rows="5" [value]="data.description"></textarea>
+            <mat-hint>input phone number with code +94 or 0</mat-hint>
+          </mat-form-field>
+        </div>
+
+        <button mat-button mat-dialog-close mat-raised-button color="primary" style="margin-right: 5px">Cancel</button>
+        <button  type="submit" mat-raised-button color="primary" [mat-dialog-close]="true" cdkFocusInitial>Update</button>
+
+
+      </div>
+
+    </form>
+
+  </div>
+
+</mat-dialog-content>

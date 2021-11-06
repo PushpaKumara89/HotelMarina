@@ -1,0 +1,60 @@
+<div class="container">
+
+  <div class="main-wrap">
+    <h1>Checking</h1>
+    <hr>
+
+    <section>
+      <div class="col-md-4">
+        <div class="booking-Details">
+
+            <mat-form-field class="example-full-width" color="primary" >
+              <mat-label>Selected Date Range </mat-label>
+              <input disabled matInput value="{{ date_range.start | date:'dd-MM-yyyy' }} &nbsp; to &nbsp;{{ date_range.end | date:'dd-MM-yyyy' }}">
+            </mat-form-field>
+
+
+            <mat-form-field class="example-full-width" color="primary" >
+              <mat-label>Full Name</mat-label>
+              <input disabled matInput value="{{guest_details.name}}">
+            </mat-form-field>
+
+
+
+            <mat-form-field class="example-full-width" color="primary">
+              <mat-label>Email Address</mat-label>
+              <input disabled matInput value="{{guest_details.email}}">
+            </mat-form-field>
+
+
+            <mat-form-field >
+              <mat-label>select your additional</mat-label>
+              <mat-select >
+                <mat-option *ngFor="let bed of beds" [value]="bed.value" (click)="calAdditionalCost(bed.value)">
+                  {{bed.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          <hr style="color: #dcdde1">
+
+
+            <h1 style="color: #dcdde1"><u>Total Cost</u> </h1>
+          <p style="color: #dcdde1">Normal Cost $: <span style="text-align: end">{{normalCost}}.00</span>&nbsp; &nbsp;&nbsp;<span>{{dateCount}}&nbsp;days</span></p>
+          <p style="color: #dcdde1">Additional Cost $: <span style="text-align: end">{{additionalCost}}</span></p>
+          <hr style="color: #dcdde1">
+          <p style="color: #dcdde1">Total $: <span style="text-align: end">{{totalCost}}</span></p>
+
+          <button style="width: 100%" mat-raised-button color="warn" (click)="checkIn()">Now CheckIn</button>
+
+        </div>
+
+      </div>
+      <div class="col-md-8"></div>
+
+    </section>
+
+  </div>
+
+
+</div>
+

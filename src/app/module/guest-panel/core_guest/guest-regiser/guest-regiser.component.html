@@ -1,0 +1,48 @@
+
+
+<div class="main_wrap">
+
+  <h1>Now Register</h1>
+  <hr>
+
+  <form [formGroup]="guestRegisterForm" (ngSubmit)="register()">
+
+
+      <mat-form-field floatLabel="auto" hideRequiredMarker appearance="outline" color="primary" class="example-full-width">
+        <mat-label>Full Name</mat-label>
+        <input formControlName="name" matInput type="text" placeholder="Ex. Jhon">
+      </mat-form-field>
+
+
+      <mat-form-field floatLabel="auto" hideRequiredMarker appearance="outline" color="primary" class="example-full-width">
+        <mat-label>Contact Number</mat-label>
+        <input formControlName="contact_number" matInput type="tel" placeholder="Ex. 07x -xxx-xxxx" >
+      </mat-form-field>
+
+      <mat-form-field floatLabel="auto" hideRequiredMarker appearance="outline" color="primary" class="example-full-width">
+        <mat-label>Address</mat-label>
+        <input formControlName="address" matInput type="" placeholder="Ex. Colombo" autocomplete="off" autocapitalize="off" >
+      </mat-form-field>
+
+      <mat-form-field floatLabel="auto" hideRequiredMarker appearance="outline" color="primary" class="example-full-width">
+        <mat-label>Email</mat-label>
+        <input formControlName="email" matInput type="email" placeholder="Ex. Jhonmx@mail.com" autocomplete="off" autocapitalize="off" >
+      </mat-form-field>
+
+
+      <mat-form-field floatLabel="auto" hideRequiredMarker appearance="outline" color="primary" class="example-full-width">
+        <mat-label>Password</mat-label>
+        <input formControlName="password" matInput type="password" autocomplete="off" autocapitalize="off" >
+        <mat-hint>Min 5 Characters</mat-hint>
+      </mat-form-field>
+
+
+    <section>
+      <button mat-button mat-dialog-close mat-raised-button color="primary" style="margin-right: 10px">Cancel</button>
+      <button type="submit"  mat-raised-button color="primary" [mat-dialog-close]="true" cdkFocusInitial>register</button>
+    </section>
+
+  </form>
+
+</div>
+

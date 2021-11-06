@@ -1,0 +1,49 @@
+<div class="main-wrap">
+  <img src="https://img.traveltriangle.com/blog/wp-content/uploads/2019/04/Things-To-Do-In-Sri-Lanka-cover_9th-Mar.jpg" alt="">
+
+  <mat-sidenav-container>
+    <mat-sidenav mode="side" [(opened)]="opened">
+
+      <div class="sideTop col-md-12">
+        <div class="profPic_Wrap col-md-4"></div>
+        <div style="height: 15px;"></div>
+        <div class="assassin_detail">
+          <h1>{{userDetails.user_name}}</h1>
+          <h4>{{userDetails.email}}</h4>
+        </div>
+
+      </div>
+      <div class="sideBottom col-md-12">
+        <ul>
+          <div routerLinkActive="active" routerLink="/adminpanel/dashBoard-admin/room-management">
+            <li>
+              <span>Room Management</span>
+            </li>
+          </div>
+          <div routerLinkActive="active" routerLink="/adminpanel/dashBoard-admin/booking-management">
+            <li>
+              <span>Booking Detail</span>
+            </li>
+          </div>
+          <div routerLinkActive="active" routerLink="/adminpanel/dashBoard-admin/checkoutandpayment">
+            <li>
+              <span>Check Out & Payment</span>
+            </li>
+          </div>
+        </ul>
+
+      </div>
+
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <app-top-bar></app-top-bar>
+      <div class="col-md-12" style="height: 80%">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+
+  </mat-sidenav-container>
+
+</div>
+

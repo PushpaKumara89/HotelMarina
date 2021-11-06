@@ -1,0 +1,20 @@
+.date-select-section mat-label, .date-select-section mat-date-range-input, .date-select-section input, .date-select-section span.mat-date-range-input-separator,
+.date-select-section mat-datepicker-toggle,
+.date-select-section .mat-form-field-underline{
+  text-align: justify;
+  font-size: 14px;
+  color: #dcdde1 ;
+}
+
+.inner_wrap{
+  background-image: url("https://cdn1.tablethotels.com/media/ecs/global/email/assets/20200402_Zoom/TabletHotels_Public-Mirrored.jpg");
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 450px;
+}
+.date-picker{
+  background-color: rgba(0, 0, 0, 0.86);
+}

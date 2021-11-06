@@ -1,0 +1,33 @@
+.date-select-section{
+  z-index: 2;
+}
+.registered{
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  .user-name{
+    font-size: 17px;
+  }
+  .user-email{
+    font-size: 12px;
+  }
+
+}
+.not-registered{
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  mat-icon{
+    color: #dcdde1;
+  }
+  mat-icon:hover{
+    color: gold;
+  }
+
+}
+mat-icon{
+  color: #dcdde1;
+}
+mat-icon:hover{
+  color: gold;
+}

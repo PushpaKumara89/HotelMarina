@@ -1,0 +1,57 @@
+.main-wrap{
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: rgba(220, 221, 225, 0.6);
+}
+.inner_wrap{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+.image_wrap{
+  padding: 15px;
+}
+
+.details{
+  padding: 10px;
+}
+h5{
+  background-color: rgba(220, 221, 225, 0.75);
+  color: #063606;
+  font-size: 15px;
+  font-weight: bold;
+}
+.inner_wrap:hover{
+  -webkit-box-shadow: 1px 0px 5px 4px rgba(6,54,6,0.76);
+  -moz-box-shadow: 1px 0px 5px 4px rgba(6,54,6,0.76);
+  box-shadow: 1px 0px 5px 4px rgba(6,54,6,0.76);
+
+}
+
+///////////////
+.header-section{
+  height: 80px;
+  line-height: 80px;
+  color: beige;
+  background-color: rgb(46, 43, 43);
+  font-size: 24px;
+  padding-left: 20px;
+}
+
+.card{
+  background-color: white;
+  box-shadow:0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+  color:black;
+  margin: 20px;
+  padding: 10px;
+}
+
+.uploadList{
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

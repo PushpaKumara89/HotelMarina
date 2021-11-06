@@ -1,0 +1,36 @@
+
+.main-wrap{
+  width: 450px;
+  height: auto;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+  background-color: rgba(220, 221, 225, 0.75);
+}
+.example-full-width{
+  width: 100%;
+}
+input{
+  transition: background-color 5000s ease-in-out 0s;//remove fill
+  font-size: 18px;
+  height: 18px;
+}
+
+mat-label{
+  color: #063606;
+  font-size: 15px;
+  font-weight: bold;
+}
+button{
+  width: 48%;
+  font-size: 18px;
+  background-color: green;
+}
+span{
+  color: #063606;
+  font-size: 15px;
+  font-weight: bold;
+}
+.mat-typography {
+  padding: 0;
+}

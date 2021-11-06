@@ -1,0 +1,27 @@
+<h2 mat-dialog-title>Sign In with your Details</h2>
+
+<hr>
+  <form [formGroup]="guestSignInForm" (ngSubmit)="signIn()">
+
+
+      <mat-form-field floatLabel="auto" hideRequiredMarker appearance="outline" color="primary" class="example-full-width">
+        <mat-label>Email</mat-label>
+        <input formControlName="email" matInput type="email" placeholder="Ex. Jhonmx@mail.com" autocomplete="off" autocapitalize="off" >
+      </mat-form-field>
+
+
+
+      <mat-form-field floatLabel="auto" hideRequiredMarker appearance="outline" color="primary" class="example-full-width">
+        <mat-label>Password</mat-label>
+        <input formControlName="password" matInput type="password" autocomplete="off" autocapitalize="off" >
+        <mat-hint>Min 5 Characters</mat-hint>
+      </mat-form-field>
+
+
+
+    <section>
+      <button mat-button mat-dialog-close mat-raised-button color="primary" style="margin-right: 10px">Cancel</button>
+      <button type="submit"  mat-raised-button color="primary" [mat-dialog-close]="true" cdkFocusInitial>Sign In</button>
+    </section>
+
+  </form>

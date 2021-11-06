@@ -1,0 +1,59 @@
+<mat-dialog-content class="mat-typography">
+  <div class="main-wrap">
+    <h1>Add New Room  <mat-icon aria-hidden="false" aria-label="Example home icon">add</mat-icon></h1>
+    <hr>
+
+    <div class="inner-wrap">
+
+      <form [formGroup]="addRoomForm" (ngSubmit)="addRoom()">
+
+
+        <div class="col-md-10">
+          <mat-form-field floatLabel="auto" hideRequiredMarker appearance="outline" color="primary" class="example-full-width">
+            <mat-label>Room Number</mat-label>
+            <input formControlName="room_number" matInput type="text" placeholder="Ex. R00x">
+            <mat-hint>Enter room number here</mat-hint>
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-10">
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Select Category</mat-label>
+            <mat-select formControlName="room_category">
+              <mat-option *ngFor="let room of rooms" [value]="room.viewValue">
+                {{room.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+        </div>
+
+        <div class="col-md-10">
+          <mat-form-field floatLabel="auto" hideRequiredMarker appearance="outline" color="primary" class="example-full-width">
+            <mat-label>Price</mat-label>
+            <span matPrefix>$ &nbsp;</span>
+            <input formControlName="price_pre_night" matInput type="number" >
+            <mat-hint>mention Price Pre Night for gust</mat-hint>
+          </mat-form-field>
+        </div>
+        <div class="col-md-12">
+          <mat-form-field floatLabel="auto" hideRequiredMarker appearance="outline" color="primary" class="example-full-width">
+            <mat-label>Description about the room</mat-label>
+            <textarea rows="5"  formControlName="description" matInput placeholder="Ex. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium asperiores esse ipsa ipsam itaque nemo quidem quo, rem totam. " rows="5" ></textarea>
+          </mat-form-field>
+        </div>
+
+        <button mat-button mat-dialog-close mat-raised-button color="primary" style="margin-right: 5px">Cancel</button>
+        <button [disabled]="addRoomForm.invalid" type="submit" mat-raised-button color="primary" [mat-dialog-close]="true" cdkFocusInitial>Add-Room</button>
+
+
+      </form>
+
+    </div>
+
+  </div>
+
+</mat-dialog-content>
+
+
+
