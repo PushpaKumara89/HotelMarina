@@ -17,12 +17,16 @@
     <tbody>
 
       <tr *ngFor="let temRoom of room; index as num">
-        <td >{{num+1}}</td>
-        <td >{{temRoom.room_number}}</td>
-        <td >{{temRoom.room_category}}</td>
-        <td >$ &nbsp; {{temRoom.price_per_night}}</td>
-        <td >{{temRoom.description}}</td>
-        <td>
+        <td class="col-md-1">{{num+1}}</td>
+        <td class="col-md-1">{{temRoom.room_number}}</td>
+        <td class="col-md-1">{{temRoom.room_category}}</td>
+        <td class="col-md-1">$ &nbsp; {{temRoom.price_per_night}}</td>
+        <td class="col-md-7">{{temRoom.description}}</td>
+        <td class="col-md-1">
+
+          <mat-icon (click)="openUpdate(temRoom)" >image</mat-icon>
+          &nbsp;
+
           <mat-icon (click)="openUpdate(temRoom)" >mode_edit</mat-icon>
           &nbsp;
           <mat-icon (click)="openDelete(temRoom.room_number)">delete</mat-icon>
@@ -31,6 +35,13 @@
 
     </tbody>
   </table>
+
+  <mat-paginator [length]="100"
+                 [pageSize]="10"
+                 [pageSizeOptions]="[5, 10, 25, 100]"
+                 aria-label="Select page">
+  </mat-paginator>
+
 
   <button mat-raised-button color="primary" (click)="openAddRoom()">Add New Room</button>
 

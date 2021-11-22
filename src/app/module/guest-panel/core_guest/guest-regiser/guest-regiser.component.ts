@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MatDialogRef} from "@angular/material/dialog";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {GuestRegisterService} from "../servises/guest-register.service";
@@ -10,15 +10,16 @@ import {LocalStorageService} from "angular-2-local-storage";
   styleUrls: ['./guest-regiser.component.scss']
 })
 export class GuestRegiserComponent implements OnInit {
-  guestRegisterForm=new FormGroup({
-    name:new FormControl('',Validators.required),
-    contact_number:new FormControl('',Validators.required),
-    address:new FormControl('',Validators.required),
-    email:new FormControl('',[Validators.required,Validators.email]),
-    password:new FormControl('',Validators.required),
+  guestRegisterForm = new FormGroup({
+    name: new FormControl('', Validators.required),
+    contact_number: new FormControl('', Validators.required),
+    address: new FormControl('', Validators.required),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', Validators.required),
   });
 
-  constructor(private guestService:GuestRegisterService ,private localstorage:LocalStorageService,dialogRef: MatDialogRef<GuestRegiserComponent>) { }
+  constructor(private guestService: GuestRegisterService, private localstorage: LocalStorageService, dialogRef: MatDialogRef<GuestRegiserComponent>) {
+  }
 
   ngOnInit(): void {
   }
@@ -30,15 +31,15 @@ export class GuestRegiserComponent implements OnInit {
       this.guestRegisterForm.get('address')?.value,
       this.guestRegisterForm.get('email')?.value,
       this.guestRegisterForm.get('password')?.value
-    ).subscribe(response=>{
+    ).subscribe(response => {
 
-      if(response.status){
-        this.localstorage.add('gustToken',response.guest);
-      }else {
+      if (response.status) {
+        this.localstorage.add('gustToken', response.guest);
+      } else {
         alert("Try again");
       }
 
-    },error => {
+    }, error => {
       alert("Try again");
     })
   }

@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
-
 
 
 @Component({
@@ -8,10 +7,11 @@ import {FormControl, FormGroup} from "@angular/forms";
   templateUrl: './guest-panel.component.html',
   styleUrls: ['./guest-panel.component.scss']
 })
-export class GuestPanelComponent implements OnInit  {
+export class GuestPanelComponent implements OnInit {
 
 
-  constructor() { }
+  constructor() {
+  }
 
 
   ngOnInit(): void {

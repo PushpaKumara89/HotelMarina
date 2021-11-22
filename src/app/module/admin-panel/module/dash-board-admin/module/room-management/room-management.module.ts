@@ -14,8 +14,8 @@ import { UpdateRoomComponent } from './component/update-room/update-room.compone
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatSelectModule} from "@angular/material/select";
 import {MatOptionModule} from "@angular/material/core";
-import { TestComponent } from './component/test/test.component';
 import {MatDialogModule} from "@angular/material/dialog";
+import {MatPaginatorModule} from "@angular/material/paginator";
 
 
 @NgModule({
@@ -23,22 +23,22 @@ import {MatDialogModule} from "@angular/material/dialog";
     RoomManagementComponent,
     AddRoomComponent,
     DeleteRoomComponent,
-    UpdateRoomComponent,
-    TestComponent
+    UpdateRoomComponent
   ],
-    imports: [
-        CommonModule,
-        RoomManagementRoutingModule,
-        MatButtonModule,
-        MatIconModule,
-        MatSidenavModule,
-        MatFormFieldModule,
-        MatInputModule,
-        ReactiveFormsModule,
-        FormsModule,
-        MatSelectModule,
-        MatOptionModule,
-        MatDialogModule
-    ]
+  imports: [
+    CommonModule,
+    RoomManagementRoutingModule,
+    MatButtonModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatDialogModule,
+    MatPaginatorModule
+  ]
 })
 export class RoomManagementModule { }

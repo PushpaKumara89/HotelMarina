@@ -1,4 +1,7 @@
-import {Component, OnInit, Query} from '@angular/core';
+import {
+  Component,
+  OnInit
+} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {RoomMnService} from "../../../../core/services/room-mn.service";
 import {BookingDetailsService} from "../../core_guest/servises/booking-details.service";
@@ -9,86 +12,105 @@ import {Router} from "@angular/router";
   templateUrl: './available-rooms.component.html',
   styleUrls: ['./available-rooms.component.scss']
 })
-export class AvailableRoomsComponent implements OnInit {
+export class AvailableRoomsComponent implements OnInit{
   dateRangeForm = new FormGroup({
     start: new FormControl(),
     end: new FormControl()
   });
 
   bookingDetails:any []=[];
-  roomDetail:any []=[];
+  roomDetails:any []=[];
   constructor(private bookingDetailsService:BookingDetailsService,private roomsDetails:RoomMnService,private router:Router) {
-
-    //this.tempRoom="22";
-
-  }
-
-  ngOnInit(): void {
     this.loadAllRooms();
     this.loadAllBookingDetails();
+
   }
 
-  loadAllBookingDetails() {
+
+
+  ngOnInit(): void {
+  }
+
+  private loadAllBookingDetails() {
     this.bookingDetailsService.getAllBooking().subscribe(response=>{
       this.bookingDetails=response.data;
-      console.log(response.data)
     },error=>{
       console.log(error);
     });
   }
   private loadAllRooms() {
     this.roomsDetails.getAllRoom().subscribe(response=>{
-      this.roomDetail=response.data;
+      this.roomDetails=response.data;
+
     },error=>{
       console.log(error);
     });
   }
 
   tempRoom:any []=[];
-  tempRoom2:any []=[];
   checkAvailable() {
-    this.tempRoom2=this.roomDetail;
     const start = this.dateRangeForm.get('start')?.value;
     const end = this.dateRangeForm.get('end')?.value;
-    if(new Date()>start){
+    if (new Date() > start) {
       alert('pleas Peak Valid Dates ');
-      /*return;*/
+      return;
 
     }
-    /*console.log(this.bookingDetails);*/
-    //---------------------------------------------------------------------------------------------------------------------------------
+
+    this.tempRoom=this.roomDetails;
+    let is_have: boolean = false;
 
     for (let i = 0; i < this.bookingDetails.length; i++) {
-      console.log(new Date(start)>new Date(this.bookingDetails[i].start_date))
-      console.log(this.bookingDetails[i].room.room_number)
-      this.tempRoom=[];
-      if(new Date(start)>new Date(this.bookingDetails[i].start_date)||new Date(end)>new Date(this.bookingDetails[i].end_date)){
-        if(new Date(start)<new Date(this.bookingDetails[i].end_date)){
-
-          for (let j = 0; j < this.tempRoom2.length; j++){
-            if(this.bookingDetails[i].room.room_number!==this.roomDetail[j].room_number){
-
-              this.tempRoom.push(this.roomDetail[j]);
-            }
-          }this.tempRoom2=this.tempRoom;
+      if(new Date(start) <= new Date(this.bookingDetails[i].start_date) && new Date(this.bookingDetails[i].start_date) <= new Date(end)){
+        is_have = true;
+      }else if(new Date(start) <= new Date(this.bookingDetails[i].end_date) && new Date(this.bookingDetails[i].end_date) <= new Date(end)){
+        is_have = true;
+      }else if(new Date(start) > new Date(this.bookingDetails[i].start_date) && new Date(this.bookingDetails[i].end_date) > new Date(end)){
+        is_have = true;
+      }else if(new Date(start) < new Date(this.bookingDetails[i].start_date) && new Date(this.bookingDetails[i].end_date) < new Date(end)){
+        is_have = true;
+      }else {
+        is_have = false;
+      }
+      if(is_have){
+        for (let j = 0; j < this.tempRoom.length; j++) {
+          if(this.bookingDetails[i].room.room_number===this.tempRoom[j].room_number){
+            this.tempRoom.splice(j,1);
+            break;
+          }
         }
-
-        console.log('fffffffffffffffff')
-
-        console.log(this.tempRoom2)
       }
     }
-    //---------------------------------------------------------------------------------------------------------------------------
 
-      let date:any=this.dateRangeForm.value
-      let rooms:any[]=[];
-      rooms=this.tempRoom2;
-     this.router.navigate(['/guest_panel/available-rooms/room-selection'], {
-       queryParams: {data: JSON.stringify(rooms), date: JSON.stringify(date)}
-     }).then (r =>{
+      /*for (let i = 0; i < this.bookingDetails.length; i++) {
+        if (new Date() < new Date(this.bookingDetails[i].start_date) && new Date(this.bookingDetails[i].start_date) < new Date(end) ||
+          new Date(start) < new Date(this.bookingDetails[i].end_date) && new Date(this.bookingDetails[i].end_date) < new Date(end) ||
+          new Date(start) > new Date(this.bookingDetails[i].start_date) && new Date(this.bookingDetails[i].end_date) > new Date(end)
+        ) {
+          is_have = true;
+
+          if (is_have) {
+            console.log(this.bookingDetails[i].room.room_number);
+            for (let j = 0; j < this.roomDetail.length; j++) {
+              if(this.bookingDetails[i].room.room_number==this.roomDetail[j].room_number){
+                console.log(this.roomDetail[j].room_number+'-'+this.bookingDetails[i].room.room_number);
+                this.roomDetail.splice(j,1);
+                break;
+              }
+            }
+          }
+        }
+      }*/
+
+
+    let date: any = this.dateRangeForm.value
+    let rooms: any[] = [];
+    rooms = this.tempRoom;
+    this.router.navigate(['/guest_panel/available-rooms/room-selection'], {
+      queryParams: {data: JSON.stringify(rooms), date: JSON.stringify(date)}
+    }).then(r => {
       return;
-     })
+    })
+    this.tempRoom=[];
   }
-
-
 }

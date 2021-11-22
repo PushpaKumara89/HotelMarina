@@ -51,6 +51,7 @@ export class BookingSelectedRoomComponent implements OnInit {
   }
 
   calAdditionalCost(data:any) {
+    console.log(this.selectedRoom)
     if(String(data)==='1'){
       this.additionalCost=0;
     }else if(String(data)==='2'){

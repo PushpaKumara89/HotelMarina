@@ -22,6 +22,7 @@ export class RoomManagementComponent implements OnInit {
   private loadAllRoom(){
     this.service.getAllRoom().subscribe(response=>{
       this.room=response.data
+
     },error=>{
       console.log(error);
     });
@@ -30,7 +31,9 @@ export class RoomManagementComponent implements OnInit {
 
 
   openDelete(tempRoom:string) {
-    const dialogRef = this.dialog.open(DeleteRoomComponent,{data:{roomNum:tempRoom}});
+    const dialogRef = this.dialog.open(DeleteRoomComponent,{
+      data:{roomNum:tempRoom}
+    });
 
     dialogRef.afterClosed().subscribe(result => {
       if(result){

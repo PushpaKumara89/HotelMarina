@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {UserService} from "../../service/user.service";
 import {LocalStorageService} from "angular-2-local-storage";
 import {Router} from "@angular/router";
+import {ImageServiceService} from "../../../../../core/services/image-service.service";
 
 @Component({
   selector: 'app-sign-up',
@@ -16,8 +17,9 @@ export class SignUpComponent implements OnInit {
     email:new FormControl('',[Validators.required,Validators.email]),
     password:new FormControl('',Validators.required)
   })
+  avatar='';
 
-  constructor(private service:UserService,private localstorage:LocalStorageService,private router:Router) {
+  constructor(private service:UserService,private localstorage:LocalStorageService,private router:Router, private imgService: ImageServiceService) {
     if(this.localstorage.get('adminToken')!=null){
       this.router.navigateByUrl('/adminpanel/dashBoard-admin');
     }
@@ -31,7 +33,8 @@ export class SignUpComponent implements OnInit {
       this.signUpForm.get('user_name')?.value,
       this.signUpForm.get('contact')?.value,
       this.signUpForm.get('email')?.value,
-      this.signUpForm.get('password')?.value
+      this.signUpForm.get('password')?.value,
+      this.avatar
     ).subscribe(response=>{
       if(response.status){
         this.localstorage.add('adminToken',response.admin_token);
@@ -43,5 +46,21 @@ export class SignUpComponent implements OnInit {
       alert(error);
       return;
     });
+  }
+
+  upload(event: any) {
+    this.imgService.singleUpload(event).subscribe((d)=>{
+      this.avatar=d.url;
+    },error => {
+      console.log(error)
+    })
+  }
+
+  uploadMultiple(event: any) {
+    this.imgService.uploadMultiple(event).subscribe((d)=>{
+      console.log(d);
+    },error => {
+      console.log(error)
+    })
   }
 }

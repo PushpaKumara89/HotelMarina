@@ -1,4 +1,4 @@
-.main-wrap{
+.main-wrap {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -7,21 +7,24 @@
   background-color: rgba(255, 255, 255, 0.6);
   border-radius: 10px;
 }
-.example-full-width{
+
+.example-full-width {
   width: 100%;
 }
-input{
-  transition: background-color 5000s ease-in-out 0s;//remove fill
+
+input {
+  transition: background-color 5000s ease-in-out 0s; //remove fill
   font-size: 18px;
   height: 18px;
 }
 
-mat-label{
+mat-label {
   color: #063606;
   font-size: 15px;
   font-weight: bold;
 }
-button{
+
+button {
   width: 100%;
   height: 100%;
   border-radius: 100px;

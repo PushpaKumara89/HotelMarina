@@ -6,9 +6,10 @@
       <h1 style="color: #dcdde1">Hotel Marina </h1>
 
     </div>
-    <div *ngIf="guest_Not_registered" class="col-md-6 not-registered" >
-      <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" [matMenuTriggerFor]="menu">
-        <mat-icon >settings</mat-icon>
+    <div *ngIf="guest_Not_registered" class="col-md-6 not-registered">
+      <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon"
+              [matMenuTriggerFor]="menu">
+        <mat-icon>settings</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
         <button mat-menu-item (click)="openRegister()">Register</button>
@@ -17,20 +18,18 @@
 
     </div>
 
-    <div *ngIf="guest_registered" class="col-md-6 " >
+    <div *ngIf="guest_registered" class="col-md-6 ">
       <div class="row">
-       <div class="col-md-11 registered">
+        <div class="col-md-11 registered">
           <span style="color: #dcdde1" class="user-name"> {{guest.name}} </span>
           <span style="color: #dcdde1" class="user-email"> {{guest.email}} </span>
-       </div>
-
-        <div class="col-md-1">
-
-          <button (click)="logOut()" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-            <mat-icon >logout</mat-icon>
-          </button>
-
         </div>
+
+        <button (click)="logOut()" mat-icon-button class="example-icon favorite-icon"
+                aria-label="Example icon-button with heart icon">
+          <mat-icon>logout</mat-icon>
+        </button>
+
 
       </div>
     </div>

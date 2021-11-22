@@ -2,20 +2,24 @@
 
   <form [formGroup]="loginForm" (ngSubmit)="login()">
 
-    <mat-form-field floatLabel="auto" hideRequiredMarker appearance="outline" color="primary" class="example-full-width">
+    <mat-form-field floatLabel="auto" hideRequiredMarker appearance="outline" color="primary"
+                    class="example-full-width">
       <mat-label>Email</mat-label>
-      <input formControlName="email" matInput type="email" placeholder="Ex. Jhonmx@mail.com" autocomplete="off" autocapitalize="off" >
+      <input formControlName="email" matInput type="email" placeholder="Ex. Jhonmx@mail.com" autocomplete="off"
+             autocapitalize="off">
     </mat-form-field>
 
 
-    <mat-form-field floatLabel="auto" hideRequiredMarker appearance="outline" color="primary" class="example-full-width">
+    <mat-form-field floatLabel="auto" hideRequiredMarker appearance="outline" color="primary"
+                    class="example-full-width">
       <mat-label>Password</mat-label>
-      <input formControlName="password" matInput type="password" autocomplete="off" autocapitalize="off" >
+      <input formControlName="password" matInput type="password" autocomplete="off" autocapitalize="off">
       <mat-hint>Min 5 Characters</mat-hint>
     </mat-form-field>
 
-    <button [disabled]="loginForm.invalid" type="submit"  mat-raised-button color="primary">Login</button>
+    <button [disabled]="loginForm.invalid" type="submit" mat-raised-button color="primary">Login</button>
 
   </form>
+
 
 </div>

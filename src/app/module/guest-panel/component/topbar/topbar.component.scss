@@ -1,33 +1,41 @@
-.date-select-section{
+.date-select-section {
   z-index: 2;
 }
-.registered{
+
+.registered {
   text-align: right;
   display: flex;
   flex-direction: column;
-  .user-name{
+
+  .user-name {
     font-size: 17px;
   }
-  .user-email{
+
+  .user-email {
     font-size: 12px;
   }
 
 }
-.not-registered{
+
+.not-registered {
   align-items: flex-end;
   display: flex;
   flex-direction: column;
-  mat-icon{
+
+  mat-icon {
     color: #dcdde1;
   }
-  mat-icon:hover{
+
+  mat-icon:hover {
     color: gold;
   }
 
 }
-mat-icon{
+
+mat-icon {
   color: #dcdde1;
 }
-mat-icon:hover{
+
+mat-icon:hover {
   color: gold;
 }

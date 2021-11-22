@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { GuestPanelComponent } from './guest-panel.component';
+import {GuestPanelComponent} from './guest-panel.component';
 
 describe('GuestPanelComponent', () => {
   let component: GuestPanelComponent;
@@ -8,9 +8,9 @@ describe('GuestPanelComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GuestPanelComponent ]
+      declarations: [GuestPanelComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, DoCheck, OnInit} from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
 import {LocalStorageService} from "angular-2-local-storage";
 import {ActivatedRoute, Router} from "@angular/router";
@@ -9,7 +9,7 @@ import {ActivatedRoute, Router} from "@angular/router";
   templateUrl: './room-selection.component.html',
   styleUrls: ['./room-selection.component.scss']
 })
-export class RoomSelectionComponent implements OnInit {
+export class RoomSelectionComponent implements OnInit{
   selectedRooms:any []=[];
   number: number= 0;
   images = [
@@ -36,14 +36,14 @@ export class RoomSelectionComponent implements OnInit {
     if(this.localStorage.get('gustToken')===null){
       alert('Please Register');
     }else {
-      //navigate to Guest cheking
       let tempRoom:any =temRoom;
       let date:any= this.dateRange;
 
+      //-----navigation to selected-room module----------
       this.router.navigate(['/guest_panel/booking-selected-room'],{
         queryParams:{room:JSON.stringify(tempRoom),date:JSON.stringify(date)}
       })
-
+      //------------------------------------------------
     }
   }
 }

@@ -1,4 +1,27 @@
-<div class="detail">
-  <h1>Room Booking Handling</h1>
-  <hr>
+
+<div class="main-wrap">
+
+  <div class="row">
+    <div class="col-lg-5">
+      <h1>Booking Details</h1>
+    </div>
+    <div class="col-lg-7">
+
+      <select class="booking-Details" #element (change)="selectedGuest(element.value)">
+        <option>Select Up Coming Bookings</option>
+        <option *ngFor="let temBooking of bookingDetails" [value]="temBooking._id">
+          {{temBooking.guest.email}} &nbsp;|&nbsp;
+        {{temBooking.room.room_number}} &nbsp;|&nbsp;
+        {{ temBooking.start_date | date:'dd-MM-yyyy' }}&nbsp; to &nbsp;
+        {{ temBooking.end_date | date:'dd-MM-yyyy' }}
+        </option>
+      </select>
+
+    </div>
+  </div>
+
+  <hr style="margin: 0">
+
+  <router-outlet></router-outlet>
+
 </div>
