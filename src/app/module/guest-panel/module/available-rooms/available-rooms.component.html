@@ -1,14 +1,14 @@
 <div class="container">
   <div class="inner_wrap">
-    <section class="date-picker  px-lg-5 py-3 date-select-section" id="date-select-section">
 
+    <div class="date-picker col-lg-6 date-select-section">
       <h1> Find deals on hotels</h1>
 
       <form [formGroup]="dateRangeForm" (ngSubmit)="checkAvailable()">
 
         <div class="row">
           <div class="col-md-6">
-            <mat-form-field color="warn" class="w-100 mt-1">
+            <mat-form-field color="warn" class="w-100">
               <mat-label>Chose a date here</mat-label>
               <mat-date-range-input [formGroup]="dateRangeForm" [rangePicker]="picker" >
                 <input matStartDate formControlName="start" placeholder="Check In">
@@ -25,14 +25,13 @@
             <section class=" mt-1">
 
               <div class="example-button-row" style="margin-top: 10px">
-                <button [disabled]="dateRangeForm.invalid" type="submit" mat-raised-button color="primary" style="width: 97%" >Check Available</button>
+                <button type="submit" mat-raised-button color="primary" style="width: 97%" >Check Available</button>
               </div>
             </section>
           </div>
         </div>
       </form>
-
-    </section>
+    </div>
   </div>
 
 

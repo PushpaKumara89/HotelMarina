@@ -20,15 +20,22 @@
 
     <div *ngIf="guest_registered" class="col-md-6 ">
       <div class="row">
-        <div class="col-md-11 registered">
-          <span style="color: #dcdde1" class="user-name"> {{guest.name}} </span>
-          <span style="color: #dcdde1" class="user-email"> {{guest.email}} </span>
-        </div>
+          <div class="col-md-12 align_row">
+            <div class="registered padding">
+              <span style="color: #dcdde1" class="user-name"> {{guest.name}} </span>
+              <span style="color: #dcdde1" class="user-email"> {{guest.email}} </span>
+            </div>
+            <div class="padding bln">
+              <span *ngIf="cart_btn" class="cart center"><span style="color: #dcdde1;font-weight: bold">{{cart.length}}</span></span>
+            </div>
 
-        <button (click)="logOut()" mat-icon-button class="example-icon favorite-icon"
-                aria-label="Example icon-button with heart icon">
-          <mat-icon>logout</mat-icon>
-        </button>
+            <button style="margin: 0" (click)="logOut()" mat-icon-button class="example-icon favorite-icon"
+                    aria-label="Example icon-button with heart icon">
+              <mat-icon>logout</mat-icon>
+            </button>
+          </div>
+
+
 
 
       </div>

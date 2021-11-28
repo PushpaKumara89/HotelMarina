@@ -1,7 +1,8 @@
-import {Component, DoCheck, OnInit} from '@angular/core';
+import {Component, DoCheck, Input, OnChanges, OnInit} from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
 import {LocalStorageService} from "angular-2-local-storage";
 import {ActivatedRoute, Router} from "@angular/router";
+import {BookingDataSharesService} from "../../../../../../share/shares_servises/booking-data-shares.service";
 
 
 @Component({
@@ -9,7 +10,7 @@ import {ActivatedRoute, Router} from "@angular/router";
   templateUrl: './room-selection.component.html',
   styleUrls: ['./room-selection.component.scss']
 })
-export class RoomSelectionComponent implements OnInit{
+export class RoomSelectionComponent implements OnInit,DoCheck{
   selectedRooms:any []=[];
   number: number= 0;
   images = [
@@ -18,32 +19,23 @@ export class RoomSelectionComponent implements OnInit{
     {position:2,url:'./assets/hroom3.jpg'}
   ];
 
-  dateRange:any ;
-
-  constructor(private localStorage:LocalStorageService,  public dialog: MatDialog,private route:ActivatedRoute,private router:Router) {
-    this.route.queryParams.subscribe((params)=>{
-      this.selectedRooms=JSON.parse(params.data);
-      this.dateRange=JSON.parse(params.date);
-    })
+  constructor(public dataShares:BookingDataSharesService, private localStorage:LocalStorageService, private router:Router) {
   }
 
   ngOnInit(): void {
-
   }
-
+  ngDoCheck() {
+    this.selectedRooms=this.dataShares.getRoomDetails();
+  }
 
   RoomCheckin(temRoom: any) {
     if(this.localStorage.get('gustToken')===null){
       alert('Please Register');
     }else {
-      let tempRoom:any =temRoom;
-      let date:any= this.dateRange;
 
-      //-----navigation to selected-room module----------
-      this.router.navigate(['/guest_panel/booking-selected-room'],{
-        queryParams:{room:JSON.stringify(tempRoom),date:JSON.stringify(date)}
-      })
-      //------------------------------------------------
+      this.dataShares.setSelectedRoom(temRoom.room_number);
+        this.router.navigateByUrl('/guest_panel/booking-selected-room').then(r => {
+        })
     }
   }
 }

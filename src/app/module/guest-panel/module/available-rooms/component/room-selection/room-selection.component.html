@@ -42,7 +42,7 @@
 
       <div class="col-md-7">
 
-        <h2>Selected Dates :{{ dateRange.start | date:'dd-MM-yyyy' }}-{{ dateRange.end | date:'dd-MM-yyyy' }}</h2>
+        <h2>Selected Dates :{{ dataShares.getStart() | date:'dd-MM-yyyy' }}&nbsp; to &nbsp;{{ dataShares.getEnd() | date:'dd-MM-yyyy' }}</h2>
         <div><h1>{{temRoom.room_category}} <span class="badge bg-secondary">{{temRoom.room_number}}</span></h1></div>
         <hr>
         <p>{{temRoom.description}}</p>

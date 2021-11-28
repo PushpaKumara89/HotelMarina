@@ -29,6 +29,11 @@ export class RoomMnService {
       headers: {room_number: roomNumber}
     })
   }
+  public searchRoom(roomNumber: string): Observable<any> {
+    return this.http.get(this.url + '/room/searchRoom', {
+      headers: {room_number: roomNumber}
+    })
+  }
 
 
   public getAllRoom(): Observable<any> {

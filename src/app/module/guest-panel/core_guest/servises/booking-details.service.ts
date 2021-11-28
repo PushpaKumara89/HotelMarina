@@ -12,7 +12,7 @@ export class BookingDetailsService {
   constructor(private http: HttpClient) {
   }
 
-  public checkIn(start_date: string, end_date: string, guest_email: string, room_number: string, cost: number): Observable<any> {
+  public checkIn(start_date: Date, end_date: Date, guest_email: string, room_number: string, cost: number): Observable<any> {
     return this.http.post(this.url + '/booking/checkin', {
       start_date: start_date,
       end_date: end_date,
@@ -29,6 +29,12 @@ export class BookingDetailsService {
   public getOneBooking(id:string|null):Observable<any>{
     return this.http.get(this.url + '/booking/getA_bookings',{
       headers:{_id:String(id)}
+    })
+  }
+
+  public getCart(email:string):Observable<any>{
+    return this.http.get(this.url + '/booking/getCart',{
+      headers:{email:email}
     })
   }
 

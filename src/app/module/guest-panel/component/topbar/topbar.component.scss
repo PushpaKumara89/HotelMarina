@@ -39,3 +39,28 @@ mat-icon {
 mat-icon:hover {
   color: gold;
 }
+.cart{
+  width: 25px;
+  height: 25px;
+  background-color: red;
+  border-radius: 100%;
+}
+.center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.padding{
+  padding: 5px;
+}
+.bln{
+  display: flex;
+  flex-direction: row;
+}
+.cart:hover{
+  cursor: pointer;
+}
+.align_row{
+  display: flex;
+  flex-direction:row;
+}

@@ -10,7 +10,7 @@
 
             <mat-form-field class="example-full-width" color="primary" >
               <mat-label>Selected Date Range </mat-label>
-              <input disabled matInput value="{{ date_range.start | date:'dd-MM-yyyy' }} &nbsp; to &nbsp;{{ date_range.end | date:'dd-MM-yyyy' }}">
+              <input disabled matInput value="{{ start | date:'dd-MM-yyyy' }} &nbsp; to &nbsp;{{ end | date:'dd-MM-yyyy' }}">
             </mat-form-field>
 
 
@@ -53,7 +53,7 @@
         <section>
 
           <div class="room-details">
-            <h1>{{selectedRoom.room_category}} <span class="badge bg-secondary">{{selectedRoom.room_number}}</span></h1>
+            <h1><!--{{}}--> <span class="badge bg-secondary">{{selected_room.room_number}}</span></h1><!--room details-->
 
             <div class="image-wrap" >
               <h1>To be implement Selected room-details  </h1>
