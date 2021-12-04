@@ -60,7 +60,12 @@ mat-icon:hover {
 .cart:hover{
   cursor: pointer;
 }
-.align_row{
+.re_inner{
   display: flex;
-  flex-direction:row;
+  flex-direction: column;
+  align-items: flex-end;
+  .inner_row{
+    display: flex;
+    flex-direction: row;
+  }
 }

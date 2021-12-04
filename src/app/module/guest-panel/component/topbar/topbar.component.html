@@ -3,7 +3,12 @@
   <div class="row">
     <div class="col-md-6">
 
-      <h1 style="color: #dcdde1">Hotel Marina </h1>
+      <h1 style="color: #dcdde1;margin-bottom: 0">Hotel Marina </h1>
+
+      <button routerLink="/guest_panel/available-rooms/hotel-details" style="margin: 0" mat-icon-button class="example-icon favorite-icon"
+              aria-label="Example icon-button with heart icon">
+        <mat-icon>home</mat-icon>
+      </button>
 
     </div>
     <div *ngIf="guest_Not_registered" class="col-md-6 not-registered">
@@ -20,12 +25,13 @@
 
     <div *ngIf="guest_registered" class="col-md-6 ">
       <div class="row">
-          <div class="col-md-12 align_row">
+        <div class="re_inner">
+          <div class="inner_row">
             <div class="registered padding">
               <span style="color: #dcdde1" class="user-name"> {{guest.name}} </span>
               <span style="color: #dcdde1" class="user-email"> {{guest.email}} </span>
             </div>
-            <div class="padding bln">
+            <div routerLink="/guest_panel/guest-details" class="padding bln">
               <span *ngIf="cart_btn" class="cart center"><span style="color: #dcdde1;font-weight: bold">{{cart.length}}</span></span>
             </div>
 
@@ -34,9 +40,7 @@
               <mat-icon>logout</mat-icon>
             </button>
           </div>
-
-
-
+        </div>
 
       </div>
     </div>

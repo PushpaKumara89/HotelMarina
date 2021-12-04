@@ -46,7 +46,6 @@ export class AvailableRoomsComponent implements OnInit{
   }
 
   checkAvailable() {
-    alert(this.dateRangeForm.get('start')?.value)
     this.dataShares.setRoomDetails(this.roomsDetail)
     this.dataShares.setStart(this.dateRangeForm.get('start')?.value);
     this.dataShares.setEnd(this.dateRangeForm.get('end')?.value);

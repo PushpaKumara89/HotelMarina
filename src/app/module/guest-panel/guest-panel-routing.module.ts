@@ -13,10 +13,12 @@ const routes: Routes = [
       {
         path: 'booking-selected-room',
         loadChildren: () => import('./module/booking-selected-room/booking-selected-room.module').then(m => m.BookingSelectedRoomModule)
+      },
+      {
+        path: 'guest-details', loadChildren: () => import('./module/guest-details/guest-details.module').then(m => m.GuestDetailsModule)
       }
     ]
   },
-
 ];
 
 @NgModule({

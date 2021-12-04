@@ -32,10 +32,10 @@ export class RoomSelectionComponent implements OnInit,DoCheck{
     if(this.localStorage.get('gustToken')===null){
       alert('Please Register');
     }else {
-
-      this.dataShares.setSelectedRoom(temRoom.room_number);
-        this.router.navigateByUrl('/guest_panel/booking-selected-room').then(r => {
-        })
+      this.dataShares.roomNumber=temRoom.room_number;
+      /*this.dataShares.setSelectedRoomNum(temRoom.room_number);*/
+      this.router.navigateByUrl('/guest_panel/booking-selected-room').then(r => {
+      })
     }
   }
 }

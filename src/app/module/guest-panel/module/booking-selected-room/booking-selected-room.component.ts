@@ -44,22 +44,33 @@ export class BookingSelectedRoomComponent implements OnInit,AfterViewInit,DoChec
 
   }
   ngDoCheck() {
-    this.selected_room=this.dataShares.getSelectedRoom();
+   /* this.selected_room=this.dataShares.getSelectedRoom();*/
   }
 
   ngAfterViewInit() {
-    /*this.selected_room=this.dataShares.getSelectedRoom();*/
-    this.start=this.dataShares.getStart();
+    /*this.start=this.dataShares.getStart();
     this.end=this.dataShares.getEnd();
 
     this.dateCounts();
     console.log(this.normalCost*this.dateCount)
     this.normalCost=this.selected_room.price_per_night*this.dateCount;
-    this.cost_calculator();
+    this.cost_calculator();*/
   }
 
   ngOnInit(): void {
+    this.roomS.searchRoom(this.dataShares.roomNumber).subscribe(response=>{
+      if(response.status===true){
+        this.selected_room =response.data;
 
+        this.start=this.dataShares.getStart();
+        this.end=this.dataShares.getEnd();
+
+        this.dateCounts();
+        console.log(this.normalCost*this.dateCount)
+        this.normalCost=this.selected_room.price_per_night*this.dateCount;
+        this.cost_calculator();
+      }
+    })
   }
 
   cost_calculator(){
