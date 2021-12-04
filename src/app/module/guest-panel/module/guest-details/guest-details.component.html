@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="main-wrap">
+    <h1>Your Booking Details</h1>
+    <hr>
+    <div class="outer_context">
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th>Room Details</th>
+          <th>Booking Details</th>
+          <th>Total Cost Per Room</th>
+          <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr  *ngFor="let temp of cart; index as num">
+          <td>{{temp.room.room_number}} </td>
+          <td>
+            <p>check in date and time : {{temp.start_date}} &nbsp; 10.30 Am</p>
+            <p>check out date and time : {{temp.end_date}} &nbsp; 10.30 Am</p>
+          </td>
+          <td>
+            $ &nbsp;{{temp.cost}}
+          </td>
+          <td>dddddddd</td>
+        </tr>
+        </tbody>
+
+      </table>
+    </div>
+
+  </div>
+</div>
+
+

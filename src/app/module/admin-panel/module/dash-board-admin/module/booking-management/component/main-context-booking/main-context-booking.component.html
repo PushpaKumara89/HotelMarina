@@ -1,0 +1,33 @@
+<div class="main_wrap">
+  <div class="row">
+
+    <div class="col-md-6" >
+      <div class="inner" style="background-color: rgba(6,54,6,0.85)">
+
+        <h2 class="text">Room Details</h2>
+        <hr class="text">
+
+        <p><span class="text">Room Number : </span> <span class="ans">{{tempRoom.room_number}}</span></p>
+        <p><span class="text">Room price : </span> <span class="ans">{{tempRoom.price_per_night}}</span></p>
+
+      </div>
+    </div>
+
+    <div class="col-md-6" >
+      <div class="inner" style="background-color: rgba(6,54,6,0.85)">
+
+        <h2 class="text">Guest Details</h2>
+        <hr class="text">
+        <p><span class="text">Guest Name : </span> <span class="ans">{{tempGuest.name}}</span></p>
+        <p><span class="text">Guest email : </span> <span class="ans">{{tempGuest.email}}</span></p>
+        <p><span class="text">Guest contact : </span> <span class="ans">{{tempGuest.contact_number}}</span></p>
+        <p><span class="text">Day range : </span> <span class="ans">{{tempBooking.start_date}} to {{tempBooking.start_date}}</span></p>
+        <p><span class="text">Address : </span> <span class="ans">{{tempGuest.address}}</span></p>
+
+      </div>
+    </div>
+
+  </div>
+  <button mat-raised-button color="primary">Confirmed Booking</button>
+
+</div>
