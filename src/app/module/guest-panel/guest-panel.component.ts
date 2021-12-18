@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
-
+import {BookingDataSharesService} from "../../share/shares_servises/booking-data-shares.service";
 
 @Component({
   selector: 'app-guest-panel',
@@ -10,8 +9,7 @@ import {FormControl, FormGroup} from "@angular/forms";
 export class GuestPanelComponent implements OnInit {
 
 
-  constructor() {
-  }
+  constructor() {}
 
 
   ngOnInit(): void {

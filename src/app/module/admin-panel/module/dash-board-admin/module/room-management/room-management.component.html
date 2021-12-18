@@ -21,15 +21,23 @@
         <td class="col-md-1">{{temRoom.room_number}}</td>
         <td class="col-md-1">{{temRoom.room_category}}</td>
         <td class="col-md-1">$ &nbsp; {{temRoom.price_per_night}}</td>
-        <td class="col-md-7">{{temRoom.description}}</td>
+        <td class="col-md-7">{{temRoom.description}} </td>
         <td class="col-md-1">
 
-          <mat-icon (click)="openUpdate(temRoom)" >image</mat-icon>
+          <button disabled="{{temRoom.image.status}}" mat-icon-button  aria-label="Example icon button with a heart icon" (click)="openUploadImage(temRoom.room_number)" >
+            <mat-icon >image</mat-icon>
+          </button>
+
+          <button mat-icon-button aria-label="Example icon button with a heart icon" (click)="openUpdate(temRoom)" >
+            <mat-icon >mode_edit</mat-icon>
+          </button>
+
+          <button mat-icon-button  aria-label="Example icon button with a heart icon" (click)="openDelete(temRoom.room_number)">
+            <mat-icon >delete</mat-icon>
+          </button>
+
           &nbsp;
 
-          <mat-icon (click)="openUpdate(temRoom)" >mode_edit</mat-icon>
-          &nbsp;
-          <mat-icon (click)="openDelete(temRoom.room_number)">delete</mat-icon>
         </td>
       </tr>
 

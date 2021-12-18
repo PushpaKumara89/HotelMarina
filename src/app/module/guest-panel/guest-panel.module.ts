@@ -16,6 +16,7 @@ import {GuestRegiserComponent} from './core_guest/guest-regiser/guest-regiser.co
 import {GuestSignInComponent} from './core_guest/guest-sign-in/guest-sign-in.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatInputModule} from "@angular/material/input";
+import {MatBadgeModule} from "@angular/material/badge";
 
 
 @NgModule({
@@ -25,20 +26,21 @@ import {MatInputModule} from "@angular/material/input";
     GuestRegiserComponent,
     GuestSignInComponent
   ],
-  imports: [
-    CommonModule,
-    GuestPanelRoutingModule,
-    MatDatepickerModule,
-    MatFormFieldModule,
-    ReactiveFormsModule,
-    MatButtonModule,
-    MatGridListModule,
-    AvailableRoomsModule,
-    MatIconModule,
-    MatMenuModule,
-    MatDialogModule,
-    MatInputModule
-  ]
+    imports: [
+        CommonModule,
+        GuestPanelRoutingModule,
+        MatDatepickerModule,
+        MatFormFieldModule,
+        ReactiveFormsModule,
+        MatButtonModule,
+        MatGridListModule,
+        AvailableRoomsModule,
+        MatIconModule,
+        MatMenuModule,
+        MatDialogModule,
+        MatInputModule,
+        MatBadgeModule
+    ]
 })
 export class GuestPanelModule {
 }

@@ -17,7 +17,7 @@ interface Beds {
   templateUrl: './booking-selected-room.component.html',
   styleUrls: ['./booking-selected-room.component.scss']
 })
-export class BookingSelectedRoomComponent implements OnInit,AfterViewInit,DoCheck {
+export class BookingSelectedRoomComponent implements OnInit,DoCheck {
   beds: Beds[] = [
     {value: '1', viewValue: 'No additional beds'},
     {value: '2', viewValue: 'Additional single bed'},
@@ -40,33 +40,18 @@ export class BookingSelectedRoomComponent implements OnInit,AfterViewInit,DoChec
               private service:BookingDetailsService,
               public dialog: MatDialog) {
     this.guest_details=this.localstorage.get('gustToken');
-
-
   }
-  ngDoCheck() {
-   /* this.selected_room=this.dataShares.getSelectedRoom();*/
-  }
-
-  ngAfterViewInit() {
-    /*this.start=this.dataShares.getStart();
-    this.end=this.dataShares.getEnd();
-
-    this.dateCounts();
-    console.log(this.normalCost*this.dateCount)
-    this.normalCost=this.selected_room.price_per_night*this.dateCount;
-    this.cost_calculator();*/
-  }
+  ngDoCheck() {}
 
   ngOnInit(): void {
     this.roomS.searchRoom(this.dataShares.roomNumber).subscribe(response=>{
       if(response.status===true){
         this.selected_room =response.data;
 
-        this.start=this.dataShares.getStart();
-        this.end=this.dataShares.getEnd();
+        this.start=this.dataShares.Start;
+        this.end=this.dataShares.End;
 
         this.dateCounts();
-        console.log(this.normalCost*this.dateCount)
         this.normalCost=this.selected_room.price_per_night*this.dateCount;
         this.cost_calculator();
       }
@@ -75,7 +60,6 @@ export class BookingSelectedRoomComponent implements OnInit,AfterViewInit,DoChec
 
   cost_calculator(){
     this.totalCost=this.normalCost+this.additionalCost;
-    console.log(this.selected_room.room_number)
   }
 
   calAdditionalCost(data:any) {

@@ -5,6 +5,8 @@ import {MatDialog} from "@angular/material/dialog";
 import {DeleteRoomComponent} from "./component/delete-room/delete-room.component";
 import {AddRoomComponent} from "./component/add-room/add-room.component";
 import {UpdateRoomComponent} from "./component/update-room/update-room.component";
+import {ImageServiceService} from "../../../../../../core/services/image-service.service";
+import {ImagesUploadComponent} from "./component/images-upload/images-upload.component";
 
 @Component({
   selector: 'app-room-management',
@@ -64,4 +66,19 @@ export class RoomManagementComponent implements OnInit {
       }
     });
   }
+
+  openUploadImage(data:string) {
+    const dialogRef = this.dialog.open(ImagesUploadComponent, {
+      disableClose: true,
+      data
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+      if(result){
+        this.loadAllRoom();
+      }
+    });
+  }
+
 }

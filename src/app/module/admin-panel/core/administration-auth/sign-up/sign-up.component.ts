@@ -21,7 +21,9 @@ export class SignUpComponent implements OnInit {
 
   constructor(private service:UserService,private localstorage:LocalStorageService,private router:Router, private imgService: ImageServiceService) {
     if(this.localstorage.get('adminToken')!=null){
-      this.router.navigateByUrl('/adminpanel/dashBoard-admin');
+      this.router.navigateByUrl('/admin_panel/dashBoard-admin').then(r => {
+
+      });
     }
   }
 
@@ -38,7 +40,7 @@ export class SignUpComponent implements OnInit {
     ).subscribe(response=>{
       if(response.status){
         this.localstorage.add('adminToken',response.admin_token);
-        this.router.navigateByUrl('/adminpanel/dashBoard-admin')
+        this.router.navigateByUrl('/admin_panel/dashBoard-admin')
       }else {
         alert("Try again");
       }

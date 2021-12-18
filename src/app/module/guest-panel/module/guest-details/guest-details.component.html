@@ -22,7 +22,13 @@
           <td>
             $ &nbsp;{{temp.cost}}
           </td>
-          <td>dddddddd</td>
+          <td>
+            <div class="example-button-container">
+            <button mat-mini-fab color="warn" aria-label="Example icon button with a filter list icon" (click)="cancelBooking(temp._id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+          </td>
         </tr>
         </tbody>
 

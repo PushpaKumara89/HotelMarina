@@ -16,6 +16,7 @@ import {MatSelectModule} from "@angular/material/select";
 import {MatOptionModule} from "@angular/material/core";
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatPaginatorModule} from "@angular/material/paginator";
+import { ImagesUploadComponent } from './component/images-upload/images-upload.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import {MatPaginatorModule} from "@angular/material/paginator";
     RoomManagementComponent,
     AddRoomComponent,
     DeleteRoomComponent,
-    UpdateRoomComponent
+    UpdateRoomComponent,
+    ImagesUploadComponent
   ],
   imports: [
     CommonModule,

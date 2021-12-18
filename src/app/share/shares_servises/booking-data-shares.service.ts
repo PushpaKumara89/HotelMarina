@@ -22,15 +22,15 @@ export class BookingDataSharesService{
     this._roomNumber = value;
   }
 
-  getStart(): string {
+  get Start(): string {
     return this._start;
   }
 
-  setStart(value: string) {
+  set Start(value: string) {
     this._start = value;
   }
 
-  getEnd(): string {
+  get End(): string {
     return this._end;
   }
 

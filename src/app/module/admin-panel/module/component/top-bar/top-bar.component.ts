@@ -20,6 +20,6 @@ export class TopBarComponent implements OnInit {
   logOut() {
     this.localstorage.remove('adminToken');
     this.localstorage.clearAll();
-    this.router.navigateByUrl('/adminpanel')
+    this.router.navigateByUrl('/admin_panel')
   }
 }

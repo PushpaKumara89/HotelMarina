@@ -13,7 +13,9 @@ export class DashBoardAdminComponent implements OnInit {
 
   constructor(private localstorage:LocalStorageService,private router:Router) {
     if(this.localstorage.get('adminToken')===null){
-      router.navigateByUrl('/adminpanel');
+      router.navigateByUrl('/admin_panel').then(r=>{
+
+      });
     }else {
       this.userDetails=this.localstorage.get('adminToken');
     }

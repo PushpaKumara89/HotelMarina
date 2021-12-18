@@ -32,6 +32,12 @@ export class BookingDetailsService {
     })
   }
 
+  public cancelBooking(id:string):Observable<any>{
+    return this.http.get(this.url + '/booking/bookingCancel',{
+      headers:{_id:id}
+    })
+  }
+
   public getCart(email:string):Observable<any>{
     return this.http.get(this.url + '/booking/getCart',{
       headers:{email:email}

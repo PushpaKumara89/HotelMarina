@@ -13,11 +13,7 @@ import {BookingDataSharesService} from "../../../../../../share/shares_servises/
 export class RoomSelectionComponent implements OnInit,DoCheck{
   selectedRooms:any []=[];
   number: number= 0;
-  images = [
-    {position:0,url:'./assets/hroom1.jpg'},
-    {position:1,url:'./assets/hroom2.jpg'},
-    {position:2,url:'./assets/hroom3.jpg'}
-  ];
+  images = [{image:'./assets/imgno.jpg'}];
 
   constructor(public dataShares:BookingDataSharesService, private localStorage:LocalStorageService, private router:Router) {
   }
@@ -29,6 +25,7 @@ export class RoomSelectionComponent implements OnInit,DoCheck{
   }
 
   RoomCheckin(temRoom: any) {
+    console.log(this.selectedRooms)
     if(this.localStorage.get('gustToken')===null){
       alert('Please Register');
     }else {
