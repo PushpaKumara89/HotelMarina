@@ -11,6 +11,7 @@ export class CartServicesService {
 
   get cart(): any[] {
     return this._cart;
+
   }
 
   set cart(value: any[]) {
@@ -21,6 +22,6 @@ export class CartServicesService {
       this.bookingService.getCart(s).subscribe(response=>{
         this.cart=response.data;
       })
-    }
+  }
 
 }

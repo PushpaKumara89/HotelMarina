@@ -40,6 +40,7 @@ export class TopbarComponent implements OnInit,DoCheck {
       this.guest = this.localstorage.get('gustToken');
       this.cart_btn = this.cart.length !== 0;
       this.cart=this.cartS.cart;
+
     }
   }
 

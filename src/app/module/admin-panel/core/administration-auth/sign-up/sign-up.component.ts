@@ -31,12 +31,14 @@ export class SignUpComponent implements OnInit {
   }
 
   signUp() {
+    const {user_name,contact,email,password}=this.signUpForm.value //get form data 1st method  best practice
     this.service.signUp(
-      this.signUpForm.get('user_name')?.value,
+      user_name,contact,email,password,this.avatar                  //get form data 1st method  best practice
+      /*this.signUpForm.get('user_name')?.value,
       this.signUpForm.get('contact')?.value,
       this.signUpForm.get('email')?.value,
       this.signUpForm.get('password')?.value,
-      this.avatar
+      this.avatar*/                                                 //get form data 2nd method
     ).subscribe(response=>{
       if(response.status){
         this.localstorage.add('adminToken',response.admin_token);

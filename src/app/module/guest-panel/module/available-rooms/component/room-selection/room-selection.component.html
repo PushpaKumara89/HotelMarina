@@ -18,7 +18,7 @@
             </div>
             <div class="carousel-inner"     >
               <div *ngFor="let temImage of temRoom.image.image; index as num2"  [ngClass]="{'active':num2==0}"  class="carousel-item  ">
-                <img src="{{temImage}}" class="d-block w-100" alt="...">
+                <img src="{{Base_server_ip}}{{temImage}}" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                 </div>
               </div>
@@ -42,7 +42,7 @@
 
       <div class="col-md-7">
 
-        <h2>Selected Dates :{{ dataShares.Start | date:'dd-MM-yyyy' }}&nbsp; to &nbsp;{{ dataShares.End | date:'dd-MM-yyyy' }}</h2>
+        <h2>Selected Dates :{{ dateRange.start | date:'dd-MM-yyyy' }}&nbsp; to &nbsp;{{ dateRange.end | date:'dd-MM-yyyy' }}</h2>
         <div><h1>{{temRoom.room_category}} <span class="badge bg-secondary">{{temRoom.room_number}}</span></h1></div>
         <hr>
         <p>{{temRoom.description}}</p>

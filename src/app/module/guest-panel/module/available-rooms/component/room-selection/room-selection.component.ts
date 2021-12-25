@@ -3,6 +3,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {LocalStorageService} from "angular-2-local-storage";
 import {ActivatedRoute, Router} from "@angular/router";
 import {BookingDataSharesService} from "../../../../../../share/shares_servises/booking-data-shares.service";
+import {environment} from "../../../../../../../environments/environment";
 
 
 @Component({
@@ -11,8 +12,10 @@ import {BookingDataSharesService} from "../../../../../../share/shares_servises/
   styleUrls: ['./room-selection.component.scss']
 })
 export class RoomSelectionComponent implements OnInit,DoCheck{
+  Base_server_ip=environment.Base_server_ip;
   selectedRooms:any []=[];
   number: number= 0;
+  dateRange:any = {}
   images = [{image:'./assets/imgno.jpg'}];
 
   constructor(public dataShares:BookingDataSharesService, private localStorage:LocalStorageService, private router:Router) {
@@ -21,6 +24,7 @@ export class RoomSelectionComponent implements OnInit,DoCheck{
   ngOnInit(): void {
   }
   ngDoCheck() {
+    this.dateRange=this.dataShares.getDateRange()
     this.selectedRooms=this.dataShares.getRoomDetails();
   }
 

@@ -29,8 +29,7 @@ export class BookingSelectedRoomComponent implements OnInit,DoCheck {
   totalCost=0;
 
   selected_room:any =[];
-  start ='';
-  end ='';
+  dateRange:any = {}
   guest_details:any =[];
 
   constructor(public dataShares:BookingDataSharesService,
@@ -41,15 +40,16 @@ export class BookingSelectedRoomComponent implements OnInit,DoCheck {
               public dialog: MatDialog) {
     this.guest_details=this.localstorage.get('gustToken');
   }
-  ngDoCheck() {}
+  ngDoCheck() {
+    this.dateRange=this.dataShares.getDateRange();
+  }
 
   ngOnInit(): void {
     this.roomS.searchRoom(this.dataShares.roomNumber).subscribe(response=>{
       if(response.status===true){
         this.selected_room =response.data;
 
-        this.start=this.dataShares.Start;
-        this.end=this.dataShares.End;
+        this.dateRange=this.dataShares.getDateRange();
 
         this.dateCounts();
         this.normalCost=this.selected_room.price_per_night*this.dateCount;
@@ -76,13 +76,16 @@ export class BookingSelectedRoomComponent implements OnInit,DoCheck {
   checkIn() {
     console.log(this.selected_room.room_number)
     this.service.checkIn(
-      new Date(this.start),
-      new Date(this.end),
+      new Date(this.dateRange.start),
+      new Date(this.dateRange.end),
       this.guest_details.email,
       this.selected_room.room_number,
       this.totalCost
     ).subscribe(response=>{
-      this.cartS.load_cartDetails(String(this.guest_details.email))
+      console.log(response)
+      if(response.status){
+        this.cartS.load_cartDetails(String(this.guest_details.email))
+      }
     },error => {
     })
 
@@ -91,8 +94,8 @@ export class BookingSelectedRoomComponent implements OnInit,DoCheck {
   }
 
   private dateCounts() {
-    const d1=new Date(this.start);
-    const d2=new Date(this.end);
+    const d1=new Date(this.dateRange.start);
+    const d2=new Date(this.dateRange.end);
     this.dateCount=(d2.getTime()-d1.getTime())/(1000 * 3600 * 24)+1;
 
   }

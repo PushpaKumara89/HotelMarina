@@ -18,14 +18,12 @@ export class AvailableRoomsComponent implements OnInit{
     start: new FormControl(),
     end: new FormControl()
   });
-  roomsDetail:any []=[];
-  constructor(private dataShares:BookingDataSharesService, private bookingDetailsService:BookingDetailsService,private roomsDetails:RoomMnService,private router:Router) {
 
-
-  }
+  constructor(private dataShares:BookingDataSharesService,
+              private bookingDetailsService:BookingDetailsService,
+              private router:Router) { }
 
   ngOnInit(): void {
-    this.loadAllRooms();
     this.loadAllBookingDetails();
   }
 
@@ -36,28 +34,17 @@ export class AvailableRoomsComponent implements OnInit{
       console.log(error);
     });
   }
-  private loadAllRooms() {
-    this.roomsDetails.getAllRoom().subscribe(response=>{
-      this.roomsDetail=response.data
 
-    },error=>{
-      console.log(error);
-    });
-  }
 
   checkAvailable() {
-    this.dataShares.setRoomDetails(this.roomsDetail)
-    this.dataShares.Start=this.dateRangeForm.get('start')?.value;
-    this.dataShares.setEnd(this.dateRangeForm.get('end')?.value);
-    this.dataShares.checkAvailableRooms();
-    if (new Date() > new Date(this.dateRangeForm.get('start')?.value)) {
+    const {start,end}=this.dateRangeForm.value
+    this.dataShares.setDateRange(start,end);
+    /*this.dataShares.checkAvailableRooms();*/
+    if (new Date() > new Date(start)) {
       alert('pleas Peak Valid Dates ');
       return;
 
     }
-    this.loadAllRooms();
-
-
     /*for (let i = 0; i < this.bookingDetails.length; i++) {
       if(new Date(start) <= new Date(this.bookingDetails[i].start_date) && new Date(this.bookingDetails[i].start_date) <= new Date(end)){
         is_have = true;
@@ -83,5 +70,10 @@ export class AvailableRoomsComponent implements OnInit{
     this.router.navigateByUrl('/guest_panel/available-rooms/room-selection').then(r => {
       console.log(r);
     })
+  }
+
+  get() {
+    const dd=this.dataShares.getDateRange()
+    console.log(dd.start);
   }
 }

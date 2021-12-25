@@ -5,38 +5,23 @@ import {RoomMnService} from "../../core/services/room-mn.service";
   providedIn: 'root'
 })
 export class BookingDataSharesService{
-
-  private _start:string='';
-  private _end:string='';
   private _bookingDetails:any []=[];
   private _roomDetails:any []=[];
-  private _roomNumber:string ='';
+  private _roomNumber ='';
 
-  constructor(private roomS:RoomMnService) { }
+  constructor(private roomS:RoomMnService) {
+    this.loadAllRooms();
+  }
 
   get roomNumber(): string {
     return this._roomNumber;
   }
 
   set roomNumber(value: string) {
+    sessionStorage.setItem('room_num',value);
     this._roomNumber = value;
   }
 
-  get Start(): string {
-    return this._start;
-  }
-
-  set Start(value: string) {
-    this._start = value;
-  }
-
-  get End(): string {
-    return this._end;
-  }
-
-  setEnd(value: string) {
-    this._end = value;
-  }
 
   get bookingDetails(): any[] {
     return this._bookingDetails;
@@ -50,22 +35,31 @@ export class BookingDataSharesService{
     return this._roomDetails;
   }
 
-  setRoomDetails(value: any[]) {
-    this._roomDetails = value;
+
+  setDateRange(s: string, e: string){
+    let data ={start:s,end:e}
+    sessionStorage.setItem('dateRange',JSON.stringify(data));
+    this.loadAllRooms();
   }
 
+  getDateRange(){
+    let temp=sessionStorage.getItem('dateRange')
+    if(temp){
+      return JSON.parse(temp);
+    }
+  }
 
-
-   checkAvailableRooms(){
+  checkAvailableRooms(){
+    const tem=this.getDateRange()
     let is_have: boolean = false;
     for (let i = 0; i < this.bookingDetails.length; i++) {
-      if(new Date(this._start) <= new Date(this.bookingDetails[i].start_date) && new Date(this.bookingDetails[i].start_date) <= new Date(this._end)){
+      if(new Date(tem.start) <= new Date(this.bookingDetails[i].start_date) && new Date(this.bookingDetails[i].start_date) <= new Date(tem.end)){
         is_have = true;
-      }else if(new Date(this._start) <= new Date(this.bookingDetails[i].end_date) && new Date(this.bookingDetails[i].end_date) <= new Date(this._end)){
+      }else if(new Date(tem.start) <= new Date(this.bookingDetails[i].end_date) && new Date(this.bookingDetails[i].end_date) <= new Date(tem.end)){
         is_have = true;
-      }else if(new Date(this._start) > new Date(this.bookingDetails[i].start_date) && new Date(this.bookingDetails[i].end_date) > new Date(this._end)){
+      }else if(new Date(tem.start) > new Date(this.bookingDetails[i].start_date) && new Date(this.bookingDetails[i].end_date) > new Date(tem.end)){
         is_have = true;
-      }else if(new Date(this._start) < new Date(this.bookingDetails[i].start_date) && new Date(this.bookingDetails[i].end_date) < new Date(this._end)){
+      }else if(new Date(tem.start) < new Date(this.bookingDetails[i].start_date) && new Date(this.bookingDetails[i].end_date) < new Date(tem.end)){
         is_have = true;
       }else {
         is_have = false;
@@ -81,4 +75,12 @@ export class BookingDataSharesService{
     }
   }
 
+  private loadAllRooms() {
+    this.roomS.getAllRoom().subscribe(response=>{
+      this._roomDetails=response.data //allRooms
+      this.checkAvailableRooms();
+    },error=>{
+      console.log(error);
+    });
+  }
 }

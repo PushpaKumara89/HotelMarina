@@ -1,6 +1,6 @@
 import { Component, OnInit ,Inject} from '@angular/core';
 import {RoomMnService} from "../../../../../../../../core/services/room-mn.service";
-import {MAT_DIALOG_DATA} from "@angular/material/dialog";
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-delete-room',
@@ -8,7 +8,7 @@ import {MAT_DIALOG_DATA} from "@angular/material/dialog";
   styleUrls: ['./delete-room.component.scss']
 })
 export class DeleteRoomComponent implements OnInit {
-  constructor(private service:RoomMnService,@Inject(MAT_DIALOG_DATA) public data: any) {
+  constructor(private service:RoomMnService, @Inject(MAT_DIALOG_DATA) public data: any) {
   }
 
   ngOnInit(): void {
@@ -19,6 +19,7 @@ export class DeleteRoomComponent implements OnInit {
     this.service.deleteRoom(roomNo).subscribe(response=>{
       console.log(response);
       alert(response.massage);
+
     },error => {
       console.log(error);
     })

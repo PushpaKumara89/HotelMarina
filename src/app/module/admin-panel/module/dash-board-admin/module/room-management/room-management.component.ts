@@ -43,6 +43,7 @@ export class RoomManagementComponent implements OnInit {
       }
     });
   }
+
   openAddRoom() {
     const dialogRef =this.dialog.open(AddRoomComponent, { disableClose: true });
 

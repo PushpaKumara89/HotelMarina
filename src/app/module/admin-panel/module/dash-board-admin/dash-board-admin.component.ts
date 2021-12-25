@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {LocalStorageService} from "angular-2-local-storage";
 import {Router} from "@angular/router";
+import {environment} from "../../../../../environments/environment";
 
 @Component({
   selector: 'app-dash-board-admin',
@@ -10,6 +11,7 @@ import {Router} from "@angular/router";
 export class DashBoardAdminComponent implements OnInit {
   opened=false;
   userDetails:any =[];
+  Base_server_ip=environment.Base_server_ip;
 
   constructor(private localstorage:LocalStorageService,private router:Router) {
     if(this.localstorage.get('adminToken')===null){

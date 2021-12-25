@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {RoomMnService} from "../../../../../../../../core/services/room-mn.service";
 import {MatDialogRef} from "@angular/material/dialog";
+import {RoomManagementComponent} from "../../room-management.component";
 
 interface Room {
   value: string;
@@ -40,6 +41,8 @@ export class AddRoomComponent implements OnInit {
       this.addRoomForm.get('description')?.value
     ).subscribe(response=>{
       alert(response.massage);
+      this.dialogRef.close(true);
+
     },error => {
       console.log(error);
     });
