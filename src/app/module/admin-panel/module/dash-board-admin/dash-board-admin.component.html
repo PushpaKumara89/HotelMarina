@@ -7,7 +7,7 @@
 
         <div class="sideTop col-md-12">
           <div class="profPic_Wrap col-md-4">
-            <img src="{{Base_server_ip}}{{userDetails.avatar}}" alt="" style="border-radius: 100%;">
+            <img src="{{Base_server_ip}}{{userDetails.avatar.url}}" alt="" style="border-radius: 100%;">
           </div>
           <div style="height: 15px;"></div>
           <div class="assassin_detail">
@@ -40,7 +40,7 @@
       </mat-sidenav>
 
       <mat-sidenav-content>
-        <app-top-bar></app-top-bar>
+        <app-top-bar ></app-top-bar>
         <div class="col-md-12" style="height: 80%">
           <router-outlet></router-outlet>
         </div>

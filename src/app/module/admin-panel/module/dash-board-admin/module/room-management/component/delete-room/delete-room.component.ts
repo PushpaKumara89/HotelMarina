@@ -1,6 +1,7 @@
 import { Component, OnInit ,Inject} from '@angular/core';
 import {RoomMnService} from "../../../../../../../../core/services/room-mn.service";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import {ImageServiceService} from "../../../../../../../../core/services/image-service.service";
 
 @Component({
   selector: 'app-delete-room',
@@ -8,7 +9,9 @@ import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
   styleUrls: ['./delete-room.component.scss']
 })
 export class DeleteRoomComponent implements OnInit {
-  constructor(private service:RoomMnService, @Inject(MAT_DIALOG_DATA) public data: any) {
+  img:any []=[];
+  constructor(private imgS:ImageServiceService, private service:RoomMnService, @Inject(MAT_DIALOG_DATA) public data: any) {
+    this.img=data.img;
   }
 
   ngOnInit(): void {
@@ -17,7 +20,13 @@ export class DeleteRoomComponent implements OnInit {
 
   deleteRoom(roomNo:string){
     this.service.deleteRoom(roomNo).subscribe(response=>{
-      console.log(response);
+      if(response.status===true){
+        for (let i = 0; i < this.img.length; i++) {
+          this.imgS.deleteImg(this.img[i]).subscribe(resp=>{
+            console.log(resp);
+          })
+        }
+      }
       alert(response.massage);
 
     },error => {

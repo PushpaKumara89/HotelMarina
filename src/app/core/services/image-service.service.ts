@@ -16,14 +16,13 @@ export class ImageServiceService {
     const file = event.target.files[0];
     console.log(file);
     const formdata = new FormData();
-    formdata.append('profile',file)
+    formdata.append('single',file)
 
     return this.http.post(this.url+'/imageupload/singlupload',formdata);
   }
 
   uploadMultiple(event: any) {
     const files:FileList = event.target.files;
-    console.log(files)
 
     const formdata = new FormData();
 
@@ -33,5 +32,11 @@ export class ImageServiceService {
     }
 
     return this.http.post(this.url+'/imageupload/multipulImage',formdata);
+  }
+
+  deleteImg(img: string) {
+    return this.http.delete(this.url+'/fileDelete',{
+      headers:{file_names: img}
+    });
   }
 }

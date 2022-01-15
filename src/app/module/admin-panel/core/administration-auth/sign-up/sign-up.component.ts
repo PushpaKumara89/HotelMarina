@@ -17,7 +17,7 @@ export class SignUpComponent implements OnInit {
     email:new FormControl('',[Validators.required,Validators.email]),
     password:new FormControl('',Validators.required)
   })
-  avatar='';
+  avatar= {}
 
   constructor(private service:UserService,private localstorage:LocalStorageService,private router:Router, private imgService: ImageServiceService) {
     if(this.localstorage.get('adminToken')!=null){
@@ -54,7 +54,7 @@ export class SignUpComponent implements OnInit {
 
   upload(event: any) {
     this.imgService.singleUpload(event).subscribe((d)=>{
-      this.avatar=d.url;
+      this.avatar=d;
     },error => {
       console.log(error)
     })

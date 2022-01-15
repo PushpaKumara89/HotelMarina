@@ -4,8 +4,8 @@
 
 export const environment = {
   production: true,
-  BaseUrl: 'http://3.138.199.140:3000/api/v1',
-  Base_server_ip:'http://3.138.199.140:3000'
+  BaseUrl: 'http://localhost:3000/api/v1',
+  Base_server_ip:'http://localhost:3000/images/'
 };
 
 /*

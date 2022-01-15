@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
+
 import {AdminPanelRoutingModule} from './admin-panel-routing.module';
 import {AdminPanelComponent} from './admin-panel.component';
 import {AuthenticationContextComponent} from './core/administration-auth/authentication-context/authentication-context.component';

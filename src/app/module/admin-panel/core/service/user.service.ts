@@ -14,7 +14,7 @@ export class UserService {
   constructor(private http: HttpClient) {
   }
 
-  public signUp(user_name: string, contact: string, email: string, password: string,avatar:string): Observable<any> {
+  public signUp(user_name: string, contact: string, email: string, password: string,avatar:object): Observable<any> {
     return this.http.post(this.url + '/user/singUp', {
       user_name: user_name,
       contact: contact,

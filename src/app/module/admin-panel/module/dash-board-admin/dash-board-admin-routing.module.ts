@@ -6,7 +6,8 @@ const routes: Routes = [
   { path: '', component: DashBoardAdminComponent,children:[
       { path: 'room-management', loadChildren: () => import('./module/room-management/room-management.module').then(m => m.RoomManagementModule) },
       { path: 'booking-management', loadChildren: () => import('./module/booking-management/booking-management.module').then(m => m.BookingManagementModule) },
-      { path: 'checkoutandpayment', loadChildren: () => import('./module/check-outand-payment/check-outand-payment.module').then(m => m.CheckOutandPaymentModule) }
+      { path: 'checkoutandpayment', loadChildren: () => import('./module/check-outand-payment/check-outand-payment.module').then(m => m.CheckOutandPaymentModule) },
+      { path: 'room_profile', loadChildren: () => import('./module/room-profile/room-profile.module').then(m => m.RoomProfileModule) },
     ]},
 ];
 

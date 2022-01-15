@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {RoomMnService} from "../../../../../../../../core/services/room-mn.service";
 import {MatDialogRef} from "@angular/material/dialog";
-import {RoomManagementComponent} from "../../room-management.component";
 
 interface Room {
   value: string;

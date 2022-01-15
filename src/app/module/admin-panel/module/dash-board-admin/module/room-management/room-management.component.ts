@@ -5,8 +5,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {DeleteRoomComponent} from "./component/delete-room/delete-room.component";
 import {AddRoomComponent} from "./component/add-room/add-room.component";
 import {UpdateRoomComponent} from "./component/update-room/update-room.component";
-import {ImageServiceService} from "../../../../../../core/services/image-service.service";
-import {ImagesUploadComponent} from "./component/images-upload/images-upload.component";
+import {RoomDataService} from "../../../../../../share/shares_servises/room-data.service";
 
 @Component({
   selector: 'app-room-management',
@@ -15,7 +14,7 @@ import {ImagesUploadComponent} from "./component/images-upload/images-upload.com
 })
 export class RoomManagementComponent implements OnInit {
 
-  constructor(private route:Router,private service:RoomMnService,public dialog: MatDialog) { }
+  constructor(private roomData:RoomDataService, private service:RoomMnService,public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.loadAllRoom();
@@ -23,7 +22,7 @@ export class RoomManagementComponent implements OnInit {
   room:any []=[];
   private loadAllRoom(){
     this.service.getAllRoom().subscribe(response=>{
-      this.room=response.data
+      this.room=response.data;
 
     },error=>{
       console.log(error);
@@ -32,9 +31,9 @@ export class RoomManagementComponent implements OnInit {
   }
 
 
-  openDelete(tempRoom:string) {
+  openDelete(tempRoom:string, img:any) {
     const dialogRef = this.dialog.open(DeleteRoomComponent,{
-      data:{roomNum:tempRoom}
+      data:{roomNum:tempRoom,img:img}
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -68,18 +67,7 @@ export class RoomManagementComponent implements OnInit {
     });
   }
 
-  openUploadImage(data:string) {
-    const dialogRef = this.dialog.open(ImagesUploadComponent, {
-      disableClose: true,
-      data
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-      if(result){
-        this.loadAllRoom();
-      }
-    });
+  navRoomProfile(roomNum:string) {
+    this.roomData.navRoomProfile(roomNum);
   }
-
 }

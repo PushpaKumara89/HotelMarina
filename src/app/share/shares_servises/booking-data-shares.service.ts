@@ -32,7 +32,7 @@ export class BookingDataSharesService{
   }
 
   getRoomDetails(): any[] {
-    return this._roomDetails;
+      return this._roomDetails;
   }
 
 
@@ -42,7 +42,7 @@ export class BookingDataSharesService{
     this.loadAllRooms();
   }
 
-  getDateRange(){
+  getDateRange():any{
     let temp=sessionStorage.getItem('dateRange')
     if(temp){
       return JSON.parse(temp);
