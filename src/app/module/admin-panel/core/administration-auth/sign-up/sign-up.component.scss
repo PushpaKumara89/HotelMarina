@@ -9,11 +9,6 @@
 }
 
 
-input {
-  transition: background-color 5000s ease-in-out 0s; //remove fill
-  font-size: 18px;
-  height: 18px;
-}
 
 mat-label {
   color: #063606;
@@ -21,7 +16,7 @@ mat-label {
   font-weight: bold;
 }
 
-button {
+.submit {
   width: 100%;
   height: 100%;
   border-radius: 100px;
@@ -29,13 +24,21 @@ button {
   background-color: green;
 }
 
-//gggggggggggggggg
-.example-form {
-  min-width: 150px;
-  max-width: 500px;
-  width: 100%;
-}
-
 .example-full-width {
   width: 100%;
+}
+.profile_imageWrap{
+  padding: 2%;
+  position: relative;
+  border: 3px solid darkgreen;
+}
+
+.imgBtn{
+  background-color: rgba(40, 34, 34, 0.4);
+  padding: 1%;
+  width: 30%;
+  height: 30%;
+  position: absolute;
+  bottom:3%;
+  left: 58%;
 }

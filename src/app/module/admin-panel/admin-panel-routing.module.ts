@@ -7,7 +7,7 @@ import {SignUpComponent} from "./core/administration-auth/sign-up/sign-up.compon
 const routes: Routes = [
   {path:'',redirectTo:'/admin_panel/login-admin',pathMatch:'full'},
   { path: '', component: AuthenticationContextComponent,children:[
-      {path:'',redirectTo:'/admin_panel/login-admin',pathMatch:'full'},
+     /* {path:'',redirectTo:'/admin_panel/login-admin',pathMatch:'full'},*/
       {path:'login-admin',component:LoginComponent},
       {path:'sign-up-admin',component:SignUpComponent}
     ]},

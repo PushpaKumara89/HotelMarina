@@ -1,9 +1,9 @@
 import {Component, DoCheck, Input, OnChanges, OnInit} from '@angular/core';
-import {MatDialog} from "@angular/material/dialog";
 import {LocalStorageService} from "angular-2-local-storage";
-import {ActivatedRoute, Router} from "@angular/router";
+import {Router} from "@angular/router";
 import {BookingDataSharesService} from "../../../../../../share/shares_servises/booking-data-shares.service";
 import {environment} from "../../../../../../../environments/environment";
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -31,10 +31,15 @@ export class RoomSelectionComponent implements OnInit,DoCheck{
   RoomCheckin(temRoom: any) {
     console.log(this.selectedRooms)
     if(this.localStorage.get('gustToken')===null){
-      alert('Please Register');
+      Swal.fire({
+        icon: 'error',
+        title: 'Sorry',
+        text: 'If not have a account Please Register firstly',
+        footer: '<a href="/guest_panel/booking-selected-room">Creat New Account Here</a>'
+      })
+
     }else {
       this.dataShares.roomNumber=temRoom.room_number;
-      /*this.dataShares.setSelectedRoomNum(temRoom.room_number);*/
       this.router.navigateByUrl('/guest_panel/booking-selected-room').then(r => {
       })
     }

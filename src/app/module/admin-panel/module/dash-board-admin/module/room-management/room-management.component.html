@@ -1,20 +1,20 @@
+<div class="container-fluid">
+  <div class="main-wrap">
+    <h1>Room Management</h1>
+    <hr>
 
-<div class="main-wrap">
-  <h1>Room Management</h1>
-  <hr>
-
-  <table class="table table-hover">
-    <thead>
-    <tr>
-      <th>Counts</th>
-      <th>Room No</th>
-      <th>Category</th>
-      <th>Amount per Night</th>
-      <th>Description</th>
-      <th>Action</th>
-    </tr>
-    </thead>
-    <tbody>
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th>Counts</th>
+        <th>Room No</th>
+        <th>Category</th>
+        <th>Amount per Night</th>
+        <th>Description</th>
+        <th>Action</th>
+      </tr>
+      </thead>
+      <tbody>
 
       <tr *ngFor="let temRoom of room; index as num">
         <td class="col-md-1">{{num+1}}</td>
@@ -36,22 +36,23 @@
             <mat-icon >delete</mat-icon>
           </button>
 
-          &nbsp;
-
         </td>
       </tr>
 
-    </tbody>
-  </table>
+      </tbody>
+    </table>
 
-  <mat-paginator [length]="100"
-                 [pageSize]="10"
-                 [pageSizeOptions]="[5, 10, 25, 100]"
-                 aria-label="Select page">
-  </mat-paginator>
+    <mat-paginator [length]="100"
+                   [pageSize]="10"
+                   [pageSizeOptions]="[5, 10, 25, 100]"
+                   aria-label="Select page">
+    </mat-paginator>
 
 
-  <button mat-raised-button color="primary" (click)="openAddRoom()">Add New Room</button>
+    <button mat-raised-button color="primary" (click)="openAddRoom()">Add New Room</button>
+
+
+  </div>
 
 
 </div>

@@ -14,7 +14,7 @@
               <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="number" class="active" aria-current="true" aria-label="Slide 1"></button>
             </div>
             <div class="carousel-inner"     >
-              <div *ngFor="let temImage of temRoom.image.image; index as num2"  [ngClass]="{'active':num2==0}"  class="carousel-item  ">
+              <div *ngFor="let temImage of temRoom.image.image; index as num2"  [ngClass]="{'active':num2===0}"  class="carousel-item  ">
                 <img src="{{Base_server_ip}}{{temImage}}" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                 </div>

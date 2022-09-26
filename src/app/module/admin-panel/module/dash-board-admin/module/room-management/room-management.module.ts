@@ -28,7 +28,6 @@ import {MatPaginatorModule} from "@angular/material/paginator";
   imports: [
     CommonModule,
     RoomManagementRoutingModule,
-    MatButtonModule,
     MatIconModule,
     MatSidenavModule,
     MatFormFieldModule,
@@ -38,7 +37,8 @@ import {MatPaginatorModule} from "@angular/material/paginator";
     MatSelectModule,
     MatOptionModule,
     MatDialogModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatButtonModule
   ]
 })
 export class RoomManagementModule { }

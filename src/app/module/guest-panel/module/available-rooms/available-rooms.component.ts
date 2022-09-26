@@ -45,27 +45,6 @@ export class AvailableRoomsComponent implements OnInit{
       return;
 
     }
-    /*for (let i = 0; i < this.bookingDetails.length; i++) {
-      if(new Date(start) <= new Date(this.bookingDetails[i].start_date) && new Date(this.bookingDetails[i].start_date) <= new Date(end)){
-        is_have = true;
-      }else if(new Date(start) <= new Date(this.bookingDetails[i].end_date) && new Date(this.bookingDetails[i].end_date) <= new Date(end)){
-        is_have = true;
-      }else if(new Date(start) > new Date(this.bookingDetails[i].start_date) && new Date(this.bookingDetails[i].end_date) > new Date(end)){
-        is_have = true;
-      }else if(new Date(start) < new Date(this.bookingDetails[i].start_date) && new Date(this.bookingDetails[i].end_date) < new Date(end)){
-        is_have = true;
-      }else {
-        is_have = false;
-      }
-      if(is_have){
-        for (let j = 0; j < this.tempRoom.length; j++) {
-          if(this.bookingDetails[i].room.room_number===this.tempRoom[j].room_number){
-            this.tempRoom.splice(j,1);
-            break;
-          }
-        }
-      }
-    }*/
 
     this.router.navigateByUrl('/guest_panel/available-rooms/room-selection').then(r => {
       console.log(r);

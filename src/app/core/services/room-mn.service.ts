@@ -50,11 +50,9 @@ export class RoomMnService {
     })
   }
   public uploadImage(image:any,room_number: string): Observable<any> {
-    console.log(image);
     return this.http.put(this.url + '/room/saveRoomImages', {
       room_number: room_number,
       image: image
-
     })
   }
 

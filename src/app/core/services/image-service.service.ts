@@ -13,15 +13,16 @@ export class ImageServiceService {
   }
 
   public singleUpload(event: any): Observable<any> {
+    console.log('-----------------')
+    console.log(event);
     const file = event.target.files[0];
-    console.log(file);
     const formdata = new FormData();
     formdata.append('single',file)
 
     return this.http.post(this.url+'/imageupload/singlupload',formdata);
   }
 
-  uploadMultiple(event: any) {
+  uploadMultiple(event: any) : Observable<any>{
     const files:FileList = event.target.files;
 
     const formdata = new FormData();
@@ -34,7 +35,7 @@ export class ImageServiceService {
     return this.http.post(this.url+'/imageupload/multipulImage',formdata);
   }
 
-  deleteImg(img: string) {
+  deleteImg(img: string)  : Observable<any> {
     return this.http.delete(this.url+'/fileDelete',{
       headers:{file_names: img}
     });

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import { Router} from "@angular/router";
 import {RoomMnService} from "../../../../../../core/services/room-mn.service";
 import {MatDialog} from "@angular/material/dialog";
@@ -69,5 +69,8 @@ export class RoomManagementComponent implements OnInit {
 
   navRoomProfile(roomNum:string) {
     this.roomData.navRoomProfile(roomNum);
+  }
+  createPdF(){
+
   }
 }

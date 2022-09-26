@@ -1,44 +1,55 @@
 <div class="main-wrap">
+  <div class="row">
+    <div class="col-md-12">
+
+      <form [formGroup]="signUpForm" (ngSubmit)="signUp()">
+
+        <mat-form-field floatLabel="auto" appearance="outline" color="primary" class="example-full-width">
+          <mat-label>User Name</mat-label>
+          <input formControlName="user_name" matInput type="text" placeholder="Ex. Jhon">
+          <mat-hint>Create User Name Here</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field floatLabel="auto" hideRequiredMarker appearance="outline" color="primary"
+                        class="example-full-width">
+          <mat-label>Contact Number</mat-label>
+          <input formControlName="contact" matInput type="tel" placeholder="Ex. 07x -xxx-xxxx">
+          <mat-hint>input phone number with code +94 or 0</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field floatLabel="auto" hideRequiredMarker appearance="outline" color="primary"
+                        class="example-full-width">
+          <mat-label>Email</mat-label>
+          <input formControlName="email" matInput type="email" placeholder="Ex. Jhonmx@mail.com" autocomplete="off"
+                 autocapitalize="off">
+        </mat-form-field>
 
 
-  <form [formGroup]="signUpForm" (ngSubmit)="signUp()">
+        <mat-form-field floatLabel="auto" hideRequiredMarker appearance="outline" color="primary"
+                        class="example-full-width">
+          <mat-label>Password</mat-label>
+          <input formControlName="password" matInput type="password" autocomplete="off" autocapitalize="off">
+          <mat-hint>Min 5 Characters</mat-hint>
+        </mat-form-field>
 
-    <mat-form-field floatLabel="auto" appearance="outline" color="primary" class="example-full-width">
-      <mat-label>User Name</mat-label>
-      <input formControlName="user_name" matInput type="text" placeholder="Ex. Jhon">
-      <mat-hint>Create User Name Here</mat-hint>
-    </mat-form-field>
+        <div class="row" style="margin: 10px">
+          <div class="col-8"></div>
+          <div class=" col-4">
+            <div class="profile_imageWrap">
+              <img style="width: 100%" src="{{previewImg}}" alt="">
+              <button *ngIf="btn" type="button"  class="imgBtn"  mat-mini-fab color="accent"  (click)="btnTriggering(ele1.id)">
+              </button>
+            </div>
 
-    <mat-form-field floatLabel="auto" hideRequiredMarker appearance="outline" color="primary"
-                    class="example-full-width">
-      <mat-label>Contact Number</mat-label>
-      <input formControlName="contact" matInput type="tel" placeholder="Ex. 07x -xxx-xxxx">
-      <mat-hint>input phone number with code +94 or 0</mat-hint>
-    </mat-form-field>
+          </div>
+        </div>
 
-    <mat-form-field floatLabel="auto" hideRequiredMarker appearance="outline" color="primary"
-                    class="example-full-width">
-      <mat-label>Email</mat-label>
-      <input formControlName="email" matInput type="email" placeholder="Ex. Jhonmx@mail.com" autocomplete="off"
-             autocapitalize="off">
-    </mat-form-field>
+        <input #ele1 id="imgOne" style="display: none" class="form-control form-control-sm" id="formFileSm" type="file" (change)="imageSelect($event)">
 
+        <button class="submit"  [disabled]="signUpForm.invalid" type="submit" mat-raised-button color="primary">Sign-Up</button>
 
-    <mat-form-field floatLabel="auto" hideRequiredMarker appearance="outline" color="primary"
-                    class="example-full-width">
-      <mat-label>Password</mat-label>
-      <input formControlName="password" matInput type="password" autocomplete="off" autocapitalize="off">
-      <mat-hint>Min 5 Characters</mat-hint>
-    </mat-form-field>
-
-    <div class="mb-3">
-      <input class="form-control form-control-sm" id="formFileSm" type="file" (change)="upload($event)">
-      <label for="formFileSm" class="form-label">select your Avatar image</label>
+      </form>
     </div>
-
-    <button  [disabled]="signUpForm.invalid" type="submit" mat-raised-button color="primary">Sign-Up</button>
-
-  </form>
-
-
+  </div>
 </div>
+
