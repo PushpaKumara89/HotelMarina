@@ -3,7 +3,6 @@ import {
   OnInit
 } from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
-import {RoomMnService} from "../../../../core/services/room-mn.service";
 import {BookingDetailsService} from "../../core_guest/servises/booking-details.service";
 import {Router} from "@angular/router";
 import {BookingDataSharesService} from "../../../../share/shares_servises/booking-data-shares.service";
@@ -49,10 +48,5 @@ export class AvailableRoomsComponent implements OnInit{
     this.router.navigateByUrl('/guest_panel/available-rooms/room-selection').then(r => {
       console.log(r);
     })
-  }
-
-  get() {
-    const dd=this.dataShares.getDateRange()
-    console.log(dd.start);
   }
 }

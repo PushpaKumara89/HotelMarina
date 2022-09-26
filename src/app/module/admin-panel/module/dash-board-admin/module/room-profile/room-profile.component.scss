@@ -20,9 +20,8 @@
   position: relative;
 }
 
-.imagCover img:hover{
-  filter: grayscale(0);
-  transform: scale(1.1);
+.imagCover:hover{
+  transform: scale(1.05);
 }
 .img{
   margin: 10px;
@@ -30,6 +29,9 @@
   height: 100%;
   filter: grayscale(100%);
   transition: 1s;
+}
+.img:hover{
+  filter: grayscale(0);
 }
 .btn{
   width: 100%;
